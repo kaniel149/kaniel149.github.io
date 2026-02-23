@@ -131,28 +131,9 @@ export const en: Translations = {
     ],
   },
   socialProof: {
-    sectionTitle: 'Numbers That Speak',
+    sectionTitle: "Real Numbers",
     stats: [
-      { value: '500+', label: 'Followers in First Month' },
-      { value: '97%', label: 'Satisfaction Rate' },
-      { value: '3', label: 'Languages' },
-    ],
-    testimonials: [
-      {
-        text: 'Within a week I built an AI system that saves me 3 hours a day. Kaniel explained it in a way I finally understood.',
-        name: 'Daniel K.',
-        role: 'Business Owner',
-      },
-      {
-        text: "The AI-First approach changed the way I think about my business. Not just a tool - a way of life.",
-        name: 'Joseph M.',
-        role: 'Entrepreneur',
-      },
-      {
-        text: 'Finally someone who talks about AI with real examples, no hype, no exaggerated promises.',
-        name: 'Michelle R.',
-        role: 'Marketing Manager',
-      },
+      { value: '14', label: 'Apps Built' }, { value: '18', label: 'Days' }, { value: '0', label: 'Lines of Manual Code' }, { value: '24/7', label: 'Active AI Agent' },
     ],
   },
   contentSection: {

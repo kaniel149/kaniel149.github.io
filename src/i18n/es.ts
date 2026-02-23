@@ -131,28 +131,9 @@ export const es: Translations = {
     ],
   },
   socialProof: {
-    sectionTitle: 'N\u00fameros que Hablan',
+    sectionTitle: "Números Reales",
     stats: [
-      { value: '500+', label: 'Seguidores en el Primer Mes' },
-      { value: '97%', label: 'Tasa de Satisfacci\u00f3n' },
-      { value: '3', label: 'Idiomas' },
-    ],
-    testimonials: [
-      {
-        text: 'En una semana constru\u00ed un sistema de IA que me ahorra 3 horas al d\u00eda. Kaniel lo explic\u00f3 de una forma que finalmente entend\u00ed.',
-        name: 'Daniel K.',
-        role: 'Due\u00f1o de Negocio',
-      },
-      {
-        text: 'El enfoque AI-First cambi\u00f3 la forma en que pienso sobre mi negocio. No es solo una herramienta - es un estilo de vida.',
-        name: 'Jos\u00e9 M.',
-        role: 'Emprendedor',
-      },
-      {
-        text: 'Por fin alguien que habla de IA con ejemplos reales, sin exageraciones ni promesas vac\u00edas.',
-        name: 'Michelle R.',
-        role: 'Gerente de Marketing',
-      },
+      { value: '14', label: 'Apps Construidas' }, { value: '18', label: 'Días' }, { value: '0', label: 'Líneas de Código Manual' }, { value: '24/7', label: 'Agente AI Activo' },
     ],
   },
   contentSection: {

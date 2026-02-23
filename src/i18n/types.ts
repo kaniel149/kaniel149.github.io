@@ -74,11 +74,6 @@ export interface Translations {
       value: string;
       label: string;
     }>;
-    testimonials: Array<{
-      text: string;
-      name: string;
-      role: string;
-    }>;
   };
   contentSection: {
     sectionTitle: string;
