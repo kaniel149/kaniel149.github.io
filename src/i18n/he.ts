@@ -12,7 +12,7 @@ export const he: Translations = {
   },
   hero: {
     headline: 'אנחנו בעידן חדש.\nהסוכנים מוכנים.\nאתה מוכן?',
-    subtitle: 'בונה חיים עם AI מאפס. יזם, לוחם מילואים, אבא. מקו פנגאן, תאילנד.',
+    subtitle: 'בניתי 14 אפליקציות ב-18 יום בלי לדעת לתכנת. עכשיו אני מלמד אחרים איך.',
     ctaWatch: 'קבל מדריך חינמי',
     ctaCourse: 'התחל את הקורס',
   },
@@ -78,9 +78,21 @@ export const he: Translations = {
     ],
     learnMore: 'קרא עוד',
   },
+  openclaw: {
+    sectionTitle: 'ChatGPT זה רק ההתחלה',
+    sectionSubtitle: 'שלוש רמות של AI — ורוב האנשים תקועים בראשונה',
+    levels: [
+      { title: 'ChatGPT', subtitle: 'צ\'אט', description: 'שואלים שאלה, מקבלים תשובה. שימושי, אבל מוגבל.' },
+      { title: 'Claude Code', subtitle: 'בונה', description: 'נותנים משימה — הוא כותב קוד, בונה אפליקציות, מתקן באגים. בלי לדעת לתכנת.' },
+      { title: 'OpenClaw', subtitle: 'עוזר 24/7', description: 'סוכן AI שרץ על המחשב שלך. מנהל מיילים, לוח שנה, פרויקטים. עובד גם כשאתה ישן.' },
+    ],
+    quote: 'בניתי 14 אפליקציות ב-18 יום. בלי לדעת לתכנת.',
+    cta: 'קרא את הסיפור המלא',
+    ctaLink: 'https://github.com/kaniel149/claude-code-journey',
+  },
   products: {
     sectionTitle: 'התחל מכאן',
-    sectionSubtitle: 'שלושה מוצרים, רמת עומק אחת - מחינם ועד מעשי',
+    sectionSubtitle: 'ארבעה מוצרים, רמת עומק אחת - מחינם ועד מעשי',
     items: [
       {
         title: '5 עוזרי AI שכל בעל עסק צריך',
@@ -107,6 +119,14 @@ export const he: Translations = {
         cta: 'בדוק את הציון שלך',
         link: 'https://kaniel149.github.io/kaniel-scorecard/#/he',
         badge: 'חינם',
+      },
+      {
+        title: 'שיחת ייעוץ 1-on-1',
+        description: 'שעה איתי. נתקין לך Claude Code + OpenClaw על המחשב, נגדיר את הסוכן הראשון שלך, ותצא עם מערכת עובדת.',
+        price: '500₪',
+        cta: 'קבע שיחה',
+        link: '#contact',
+        badge: 'חדש',
       },
     ],
   },

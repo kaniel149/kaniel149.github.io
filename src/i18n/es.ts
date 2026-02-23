@@ -78,6 +78,18 @@ export const es: Translations = {
     ],
     learnMore: 'Leer M\u00e1s',
   },
+  openclaw: {
+    sectionTitle: 'ChatGPT Es Solo el Comienzo',
+    sectionSubtitle: 'Tres niveles de IA — y la mayoría de la gente está atascada en el primero',
+    levels: [
+      { title: 'ChatGPT', subtitle: 'Chat', description: 'Haces una pregunta, recibes una respuesta. Útil, pero limitado.' },
+      { title: 'Claude Code', subtitle: 'Constructor', description: 'Dale una tarea — escribe código, construye apps, corrige errores. Sin saber programar.' },
+      { title: 'OpenClaw', subtitle: 'Asistente 24/7', description: 'Un agente de IA que corre en tu computadora. Gestiona emails, calendario, proyectos. Trabaja mientras duermes.' },
+    ],
+    quote: 'Construí 14 apps en 18 días. Sin saber programar.',
+    cta: 'Lee la Historia Completa',
+    ctaLink: 'https://github.com/kaniel149/claude-code-journey',
+  },
   products: {
     sectionTitle: 'Empieza Aqu\u00ed',
     sectionSubtitle: 'Tres productos, un nivel de profundidad - de gratis a pr\u00e1ctico',
@@ -107,6 +119,14 @@ export const es: Translations = {
         cta: 'Verificar Tu Puntaje',
         link: 'https://kaniel149.github.io/kaniel-scorecard/#/es',
         badge: 'Gratis',
+      },
+      {
+        title: 'Consultoría 1-on-1',
+        description: 'Una hora conmigo. Instalaremos Claude Code + OpenClaw en tu máquina, configuraremos tu primer agente, y saldrás con un sistema funcionando.',
+        price: '€130',
+        cta: 'Reservar Llamada',
+        link: '#contact',
+        badge: 'Nuevo',
       },
     ],
   },

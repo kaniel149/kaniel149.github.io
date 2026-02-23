@@ -78,6 +78,18 @@ export const en: Translations = {
     ],
     learnMore: 'Learn More',
   },
+  openclaw: {
+    sectionTitle: 'ChatGPT Is Just the Beginning',
+    sectionSubtitle: 'Three levels of AI — and most people are stuck on the first one',
+    levels: [
+      { title: 'ChatGPT', subtitle: 'Chat', description: 'Ask a question, get an answer. Useful, but limited.' },
+      { title: 'Claude Code', subtitle: 'Builder', description: 'Give it a task — it writes code, builds apps, fixes bugs. No coding required.' },
+      { title: 'OpenClaw', subtitle: '24/7 Assistant', description: 'An AI agent running on your computer. Manages emails, calendar, projects. Works while you sleep.' },
+    ],
+    quote: 'I built 14 apps in 18 days. Without knowing how to code.',
+    cta: 'Read the Full Story',
+    ctaLink: 'https://github.com/kaniel149/claude-code-journey',
+  },
   products: {
     sectionTitle: 'Start Here',
     sectionSubtitle: 'Three products, one depth level - from free to hands-on',
@@ -107,6 +119,14 @@ export const en: Translations = {
         cta: 'Check Your Score',
         link: 'https://kaniel149.github.io/kaniel-scorecard/#/en',
         badge: 'Free',
+      },
+      {
+        title: '1-on-1 Consulting Call',
+        description: "One hour with me. We'll install Claude Code + OpenClaw on your machine, set up your first agent, and you'll leave with a working system.",
+        price: '$140',
+        cta: 'Book a Call',
+        link: '#contact',
+        badge: 'New',
       },
     ],
   },

@@ -44,6 +44,18 @@ export interface Translations {
     }>;
     learnMore: string;
   };
+  openclaw: {
+    sectionTitle: string;
+    sectionSubtitle: string;
+    levels: Array<{
+      title: string;
+      subtitle: string;
+      description: string;
+    }>;
+    quote: string;
+    cta: string;
+    ctaLink: string;
+  };
   products: {
     sectionTitle: string;
     sectionSubtitle: string;

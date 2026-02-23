@@ -5,6 +5,7 @@ import Footer from './components/layout/Footer';
 import HeroSection from './components/sections/HeroSection';
 import AboutSection from './components/sections/AboutSection';
 import PillarsSection from './components/sections/PillarsSection';
+import OpenClawSection from './components/sections/OpenClawSection';
 import ProductsSection from './components/sections/ProductsSection';
 import SocialProofSection from './components/sections/SocialProofSection';
 import ContentSection from './components/sections/ContentSection';
@@ -32,6 +33,7 @@ function HomePage() {
         <HeroSection />
         <AboutSection />
         <PillarsSection />
+        <OpenClawSection />
         <ProductsSection />
         <SocialProofSection />
         <ContentSection />
