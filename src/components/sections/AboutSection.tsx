@@ -17,7 +17,7 @@ export default function AboutSection() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         {/* Photo + Stats */}
         <div className="flex flex-col items-center gap-10">
-          {/* Photo placeholder */}
+          {/* Photo */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -25,7 +25,7 @@ export default function AboutSection() {
             transition={{ duration: 0.5 }}
             className="w-48 h-48 md:w-56 md:h-56 rounded-full bg-brand-card border-2 border-brand-accent/40 flex items-center justify-center overflow-hidden"
           >
-            <User className="text-brand-muted/30" size={80} />
+            <img src="/images/kaniel-headshot.jpg" alt="Kaniel Tordjman" className="w-full h-full object-cover" />
           </motion.div>
 
           {/* Stats Grid */}
