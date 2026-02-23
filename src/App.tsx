@@ -19,7 +19,7 @@ function HomePage() {
   const validLang: Language =
     lang === 'en' || lang === 'es' || lang === 'he' ? lang : 'he';
   const isRtl = validLang === 'he';
-  const fontClass = isRtl ? 'font-heebo' : 'font-inter';
+  const fontClass = isRtl ? 'font-heebo' : 'font-body';
 
   useEffect(() => {
     document.documentElement.lang = validLang;

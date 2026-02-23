@@ -47,7 +47,7 @@ export default function Navbar() {
           {/* Logo */}
           <a
             href={`/#/${lang}`}
-            className="text-xl md:text-2xl font-bold tracking-wider text-brand-text hover:text-brand-accent transition-colors"
+            className="font-display text-xl md:text-2xl font-bold tracking-wider text-brand-text hover:text-brand-accent transition-colors"
           >
             KANIEL
           </a>

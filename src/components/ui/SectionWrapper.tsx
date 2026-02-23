@@ -20,9 +20,9 @@ export default function SectionWrapper({
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.05 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
       style={{ willChange: 'opacity, transform' }}
-      className={`py-20 md:py-28 px-6 md:px-12 lg:px-20 ${
+      className={`py-24 md:py-32 px-6 md:px-12 lg:px-20 ${
         dark ? 'bg-brand-card' : 'bg-brand-bg'
       } ${className}`}
     >

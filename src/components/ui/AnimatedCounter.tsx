@@ -43,7 +43,7 @@ export default function AnimatedCounter({ value, label }: AnimatedCounterProps) 
 
   return (
     <div ref={ref} className="text-center">
-      <div className="text-4xl md:text-5xl font-bold text-brand-accent mb-2">
+      <div className="text-4xl md:text-5xl font-display font-bold text-brand-accent mb-2">
         {displayValue}
       </div>
       <div className="text-brand-muted text-sm md:text-base">{label}</div>
