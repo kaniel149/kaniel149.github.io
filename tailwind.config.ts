@@ -9,7 +9,7 @@ const config: Config = {
           bg: '#060608',
           card: '#0F0F14',
           text: '#F0EDE6',
-          muted: '#8A8A9A',
+          muted: '#9A9AAC',
           accent: '#6C63FF',
           'accent-hover': '#5A52E0',
           glow: '#6C63FF',
