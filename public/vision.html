@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vision Board — KANIEL TORD LLC</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface2: #1a1a26;
+    --border: #2a2a3a;
+    --text: #e4e4ef;
+    --text-dim: #8888a0;
+    --accent: #6c63ff;
+    --accent-glow: rgba(108, 99, 255, 0.3);
+    --green: #22c55e;
+    --green-dim: rgba(34, 197, 94, 0.15);
+    --yellow: #eab308;
+    --yellow-dim: rgba(234, 179, 8, 0.15);
+    --gray: #555570;
+    --gray-dim: rgba(85, 85, 112, 0.15);
+    --gradient: linear-gradient(135deg, #6c63ff 0%, #a855f7 50%, #ec4899 100%);
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Ambient background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 20%, rgba(108, 99, 255, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(168, 85, 247, 0.04) 0%, transparent 50%);
+    animation: ambientDrift 20s ease-in-out infinite alternate;
+    z-index: -1;
+  }
+
+  @keyframes ambientDrift {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(-3%, 3%) rotate(2deg); }
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  /* HEADER */
+  .header {
+    text-align: center;
+    padding: 3rem 0 2rem;
+    animation: fadeInDown 0.8s ease-out;
+  }
+
+  .header .quote {
+    font-size: 0.85rem;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .header h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.3rem;
+    letter-spacing: -0.02em;
+  }
+
+  .header .subtitle {
+    font-size: 1rem;
+    color: var(--text-dim);
+    font-weight: 400;
+  }
+
+  .meta-row {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    text-align: center;
+  }
+
+  .meta-item .value {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .meta-item .label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-dim);
+  }
+
+  /* SECTIONS */
+  .section {
+    margin-top: 3rem;
+    animation: fadeInUp 0.6s ease-out both;
+  }
+
+  .section:nth-child(2) { animation-delay: 0.1s; }
+  .section:nth-child(3) { animation-delay: 0.2s; }
+  .section:nth-child(4) { animation-delay: 0.3s; }
+  .section:nth-child(5) { animation-delay: 0.4s; }
+
+  .section-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* MRR PROGRESS */
+  .mrr-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mrr-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gradient);
+  }
+
+  .mrr-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .mrr-current {
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+  }
+
+  .mrr-target {
+    font-size: 1rem;
+    color: var(--text-dim);
+  }
+
+  .mrr-target span {
+    color: var(--green);
+    font-weight: 700;
+  }
+
+  .progress-track {
+    width: 100%;
+    height: 12px;
+    background: var(--surface2);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--gradient);
+    border-radius: 6px;
+    width: 0%;
+    transition: width 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+  }
+
+  .progress-fill::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    background: rgba(255,255,255,0.3);
+    filter: blur(4px);
+    animation: progressShine 2s ease-in-out infinite;
+  }
+
+  @keyframes progressShine {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+
+  .milestones {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.75rem;
+    position: relative;
+  }
+
+  .milestone {
+    text-align: center;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    position: relative;
+    cursor: default;
+    transition: color 0.3s;
+  }
+
+  .milestone::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--surface2);
+    border: 2px solid var(--border);
+    margin: 0 auto 4px;
+    transition: all 0.3s;
+  }
+
+  .milestone.reached::before {
+    background: var(--green);
+    border-color: var(--green);
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
+  }
+
+  .milestone.reached { color: var(--green); }
+
+  /* PROJECT CARDS */
+  .tier-label {
+    display: inline-block;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .tier-revenue .tier-label { background: var(--green-dim); color: var(--green); }
+  .tier-building .tier-label { background: var(--yellow-dim); color: var(--yellow); }
+  .tier-secondary .tier-label { background: var(--gray-dim); color: var(--gray); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    transition: all 0.3s ease;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3), 0 0 0 1px var(--accent-glow);
+  }
+
+  .project-card .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .status-active { background: var(--green); box-shadow: 0 0 6px rgba(34, 197, 94, 0.5); }
+  .status-building { background: var(--yellow); box-shadow: 0 0 6px rgba(234, 179, 8, 0.5); }
+  .status-paused { background: var(--gray); }
+
+  .project-card .card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-card .name {
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+
+  .project-card .hebrew {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    direction: rtl;
+  }
+
+  .project-card .desc {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+    margin-top: 0.25rem;
+  }
+
+  .project-card .revenue {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.72rem;
+    color: var(--text-dim);
+  }
+
+  .project-card .revenue strong {
+    color: var(--green);
+    font-weight: 600;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    padding: 1rem 0;
+  }
+
+  .timeline-line {
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+  }
+
+  .timeline-event {
+    position: relative;
+    padding-left: 50px;
+    padding-bottom: 2rem;
+    animation: fadeInLeft 0.5s ease-out both;
+  }
+
+  .timeline-event:nth-child(1) { animation-delay: 0.1s; }
+  .timeline-event:nth-child(2) { animation-delay: 0.2s; }
+  .timeline-event:nth-child(3) { animation-delay: 0.3s; }
+  .timeline-event:nth-child(4) { animation-delay: 0.4s; }
+  .timeline-event:nth-child(5) { animation-delay: 0.5s; }
+
+  .timeline-event::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--surface2);
+    border: 2px solid var(--border);
+    z-index: 1;
+  }
+
+  .timeline-event.current::before {
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 12px var(--accent-glow);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .timeline-event.future::before {
+    background: var(--surface2);
+    border-color: var(--border);
+  }
+
+  .timeline-event.current .today-marker {
+    display: inline-block;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: var(--accent);
+    color: white;
+    padding: 0.15rem 0.5rem;
+    border-radius: 100px;
+    margin-left: 0.5rem;
+    font-weight: 600;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .timeline-date {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 0.15rem;
+  }
+
+  .timeline-text {
+    font-size: 0.88rem;
+    color: var(--text);
+  }
+
+  .timeline-mrr {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--green);
+    background: var(--green-dim);
+    padding: 0.1rem 0.5rem;
+    border-radius: 100px;
+    margin-top: 0.25rem;
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 8px var(--accent-glow); }
+    50% { box-shadow: 0 0 20px var(--accent-glow), 0 0 40px rgba(108, 99, 255, 0.1); }
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 0.75rem;
+  }
+
+  .footer .brand {
+    font-weight: 700;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .footer .location {
+    margin-top: 0.25rem;
+    font-size: 0.7rem;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes countUp {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .container { padding: 1rem 1rem 3rem; }
+    .header { padding: 2rem 0 1.5rem; }
+    .mrr-card { padding: 1.5rem; }
+    .mrr-current { font-size: 2rem; }
+    .meta-row { gap: 1.5rem; }
+    .meta-item .value { font-size: 1.4rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .milestones { font-size: 0.6rem; }
+  }
+
+  /* Status legend */
+  .legend {
+    display: flex;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    color: var(--text-dim);
+  }
+
+  .today-marker { display: none; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="header">
+    <p class="quote">"From survival to abundance through AI agents, systems thinking, and lifestyle business."</p>
+    <h1>Vision Board 2026</h1>
+    <p class="subtitle">KANIEL TORD LLC</p>
+
+    <div class="meta-row">
+      <div class="meta-item">
+        <div class="value" id="daysSince">—</div>
+        <div class="label">Days Since Founding</div>
+      </div>
+      <div class="meta-item">
+        <div class="value">$20K</div>
+        <div class="label">MRR Target</div>
+      </div>
+      <div class="meta-item">
+        <div class="value">11</div>
+        <div class="label">Active Projects</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MRR PROGRESS -->
+  <div class="section">
+    <div class="section-title">Monthly Recurring Revenue</div>
+    <div class="mrr-card">
+      <div class="mrr-header">
+        <div class="mrr-current">$<span id="mrrValue">0</span> <span style="font-size:0.9rem;font-weight:400;color:var(--text-dim)">MRR</span></div>
+        <div class="mrr-target">Target: <span>$20,000</span> by Dec 2026</div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="mrrBar"></div>
+      </div>
+      <div class="milestones">
+        <div class="milestone" data-val="0"><span>$0</span></div>
+        <div class="milestone" data-val="1000"><span>$1K</span></div>
+        <div class="milestone" data-val="2000"><span>$2K</span></div>
+        <div class="milestone" data-val="5000"><span>$5K</span></div>
+        <div class="milestone" data-val="10000"><span>$10K</span></div>
+        <div class="milestone" data-val="20000"><span>$20K</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECTS: TIER 1 -->
+  <div class="section tier-revenue">
+    <div class="section-title">Projects</div>
+    <div class="legend">
+      <div class="legend-item"><span class="status-dot status-active"></span> Active</div>
+      <div class="legend-item"><span class="status-dot status-building"></span> Building</div>
+      <div class="legend-item"><span class="status-dot status-paused"></span> Paused</div>
+    </div>
+
+    <span class="tier-label">Tier 1 — Revenue</span>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="card-header">
+          <span class="status-dot status-active"></span>
+          <span class="name">Solar OS CRM</span>
+        </div>
+        <div class="desc">SaaS CRM for solar companies in Israel. Full pipeline management, proposals, and installation tracking.</div>
+        <div class="revenue">
+          <strong>₪1,999/mo</strong> per company &middot; Target: 10 companies = <strong>₪20K/mo</strong>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-header">
+          <span class="status-dot status-active"></span>
+          <span class="name">Solar OS Mivne</span>
+        </div>
+        <div class="hebrew">מבנה</div>
+        <div class="desc">Structural solar installations module. One-time setup + monthly subscription.</div>
+        <div class="revenue">
+          <strong>₪15-25K</strong> one-time + <strong>₪2-3K/mo</strong> &middot; Target: 5 companies
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-header">
+          <span class="status-dot status-active"></span>
+          <span class="name">Solaris Panama</span>
+        </div>
+        <div class="desc">Solar installations in Panama. POC phase targeting commercial rooftops.</div>
+        <div class="revenue">
+          <strong>$300/kW</strong> installations &middot; Target: 300kW POC then expand
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-header">
+          <span class="status-dot status-active"></span>
+          <span class="name">Megged Academy</span>
+        </div>
+        <div class="hebrew">אקדמיית מגד</div>
+        <div class="desc">Online education platform for solar industry professionals.</div>
+        <div class="revenue">
+          <strong>₪97</strong> course + <strong>₪500</strong> consulting sessions
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PROJECTS: TIER 2 -->
+  <div class="section tier-building">
+    <span class="tier-label">Tier 2 — Building</span>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="card-header">
+          <span class="status-dot status-building"></span>
+          <span class="name">Migdal Or</span>
+        </div>
+        <div class="hebrew">מגדל אור</div>
+        <div class="desc">Volunteer coordination platform. Non-profit initiative connecting volunteers with community needs.</div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-header">
+          <span class="status-dot status-building"></span>
+          <span class="name">HealthOS</span>
+        </div>
+        <div class="desc">Personal health tracking system. Biometrics, habits, and wellness dashboard.</div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-header">
+          <span class="status-dot status-building"></span>
+          <span class="name">kanielt.com</span>
+        </div>
+        <div class="desc">Personal brand hub. Portfolio, writing, and consulting landing page.</div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-header">
+          <span class="status-dot status-building"></span>
+          <span class="name">Storage OS</span>
+        </div>
+        <div class="desc">Battery management system for solar installations. Early stage R&D.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PROJECTS: TIER 3 -->
+  <div class="section tier-secondary">
+    <span class="tier-label">Tier 3 — Secondary</span>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="card-header">
+          <span class="status-dot status-building"></span>
+          <span class="name">White Room</span>
+        </div>
+        <div class="desc">Art project. Creative exploration and expression.</div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-header">
+          <span class="status-dot status-paused"></span>
+          <span class="name">Yalla Venao</span>
+        </div>
+        <div class="desc">Delivery app for Venao, Panama. Currently paused.</div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-header">
+          <span class="status-dot status-paused"></span>
+          <span class="name">Polymarket Alpha</span>
+        </div>
+        <div class="desc">Prediction market trading bot. Currently paused.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="section">
+    <div class="section-title">Roadmap 2026</div>
+    <div class="timeline">
+      <div class="timeline-line"></div>
+
+      <div class="timeline-event current">
+        <div class="timeline-date">March 2026 <span class="today-marker">You are here</span></div>
+        <div class="timeline-text">Launch Solar OS USA, Mivne MVP, Solaris POC</div>
+        <div class="timeline-mrr">$0 MRR</div>
+      </div>
+
+      <div class="timeline-event future">
+        <div class="timeline-date">April 2026</div>
+        <div class="timeline-text">First 5 paying customers (Solar OS)</div>
+        <div class="timeline-mrr">→ $1K MRR</div>
+      </div>
+
+      <div class="timeline-event future">
+        <div class="timeline-date">June 2026</div>
+        <div class="timeline-text">Scale Solar OS Israel + Mivne onboarding</div>
+        <div class="timeline-mrr">→ $5K MRR</div>
+      </div>
+
+      <div class="timeline-event future">
+        <div class="timeline-date">September 2026</div>
+        <div class="timeline-text">Solaris Panama revenue + Academy launch</div>
+        <div class="timeline-mrr">→ $10K MRR</div>
+      </div>
+
+      <div class="timeline-event future">
+        <div class="timeline-date">December 2026</div>
+        <div class="timeline-text">Full portfolio generating — lifestyle business achieved</div>
+        <div class="timeline-mrr">→ $20K MRR 🎯</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="brand">KANIEL TORD LLC</div>
+    <div class="location">Bangkok, Thailand &middot; Founded Feb 16, 2026</div>
+  </div>
+
+</div>
+
+<script>
+  // Days since founding
+  const founding = new Date('2026-02-16');
+  const now = new Date();
+  const days = Math.max(0, Math.floor((now - founding) / (1000 * 60 * 60 * 24)));
+  const el = document.getElementById('daysSince');
+  
+  // Animate counter
+  let count = 0;
+  const target = days;
+  const duration = 1500;
+  const step = Math.max(1, Math.floor(target / (duration / 16)));
+  
+  function animateCount() {
+    count = Math.min(count + step, target);
+    el.textContent = count;
+    if (count < target) requestAnimationFrame(animateCount);
+    else el.textContent = target;
+  }
+  
+  setTimeout(animateCount, 500);
+
+  // MRR progress
+  const currentMRR = 0;
+  const targetMRR = 20000;
+  const pct = Math.min(100, (currentMRR / targetMRR) * 100);
+  
+  setTimeout(() => {
+    document.getElementById('mrrBar').style.width = Math.max(pct, 0.5) + '%';
+  }, 800);
+
+  // Mark reached milestones
+  document.querySelectorAll('.milestone').forEach(m => {
+    if (currentMRR >= parseInt(m.dataset.val)) {
+      m.classList.add('reached');
+    }
+  });
+
+  // Determine current timeline position based on date
+  const timelineEvents = document.querySelectorAll('.timeline-event');
+  const months = [
+    new Date('2026-03-01'),
+    new Date('2026-04-01'),
+    new Date('2026-06-01'),
+    new Date('2026-09-01'),
+    new Date('2026-12-01'),
+  ];
+  
+  let currentIdx = 0;
+  for (let i = months.length - 1; i >= 0; i--) {
+    if (now >= months[i]) { currentIdx = i; break; }
+  }
+  
+  timelineEvents.forEach((ev, i) => {
+    ev.classList.remove('current', 'future');
+    if (i < currentIdx) ev.classList.add('past');
+    else if (i === currentIdx) {
+      ev.classList.add('current');
+      ev.querySelector('.today-marker').style.display = 'inline-block';
+    }
+    else ev.classList.add('future');
+  });
+
+  // Intersection observer for scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(15px)';
+    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(card);
+  });
+</script>
+
+</body>
+</html>
